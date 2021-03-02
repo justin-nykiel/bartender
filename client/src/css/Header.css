@@ -1,0 +1,24 @@
+.header {
+    height: 30vh;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header h1{
+    display: block;
+}
+.carousel {
+    width: 70vw;
+    height: 300px;
+    margin: auto;
+}
+
+.carousel .slick-next:before, .carousel .slick-prev:before {
+    color: black;
+}
+
+.drinkPic {
+    height: 260px;
+}
