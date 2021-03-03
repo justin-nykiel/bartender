@@ -55,9 +55,7 @@ export default function RecipeReviewCard({img, name, ingredient, glass, measure,
   const [anchorEl, setAnchorEl] = useState(null);
   const [tweets, setTweets] = useState([])
 
-  useEffect(() => {
-    console.log(ingredient.length)
-  }, [])
+  
 
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -81,7 +79,7 @@ export default function RecipeReviewCard({img, name, ingredient, glass, measure,
         <CardMedia
           className={classes.media}
           image={img}
-          title="Contemplative Reptile"
+          title={img}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -89,10 +87,11 @@ export default function RecipeReviewCard({img, name, ingredient, glass, measure,
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {instruction}
-            <p>Ingredients:</p>
+            <span>Ingredients:</span>
             {ingredient.map((each, index)=>{
               if(each[0] !== null){
-                return <p>{each[0]} : {each[1]}</p>
+                if(each[1]== null) each[1] = "as needed"
+                return <span>{each[0]} : {each[1]}</span>
               }
             })}
           </Typography>

@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -14,17 +15,30 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
 }));
 
 
-const Selectors = () => {
+const Selectors = ({searchDrinkByIngredients}) => {
     const classes = useStyles();
-    const [age, setAge] = React.useState('');
+    const [liquor, setLiquor] = useState("")
+    const [liqueur, setLiqueur] = useState("")
+    const [mixer, setMixer] = useState("")
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
-
+    
+    const handleLiquorChange = (e) => {
+        setLiquor(e.target.value)
+    }
+    const handleLiqueurChange = (e) => {
+        setLiqueur(e.target.value)
+    }
+    const handleMixerChange = (e) => {
+        setMixer(e.target.value)
+    }
     
     return (
         <div>
@@ -33,19 +47,16 @@ const Selectors = () => {
                 <Select
                     labelId="demo-simple-select-helper-label"
                     id="demo-simple-select-helper"
-                    value={age}
-                    onChange={handleChange}
+                    value={liquor}
+                    onChange={handleLiquorChange}
                 >
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    <MenuItem value={10}>Vodka</MenuItem>
-                    <MenuItem value={20}>Gin</MenuItem>
-                    <MenuItem value={30}>Rum</MenuItem>
-                    <MenuItem value={30}>Whiskey</MenuItem>
-                    <MenuItem value={30}>Rum</MenuItem>
-                    <MenuItem value={30}>Rum</MenuItem>
-                    <MenuItem value={30}>Rum</MenuItem>
+                    <MenuItem value={"Vodka"}>Vodka</MenuItem>
+                    <MenuItem value={"Gin"}>Gin</MenuItem>
+                    <MenuItem value={"Rum"}>Rum</MenuItem>
+                    <MenuItem value={"Whiskey"}>Whiskey</MenuItem>
                 </Select>
                 <FormHelperText>Some important helper text</FormHelperText>
             </FormControl>
@@ -54,16 +65,16 @@ const Selectors = () => {
                 <Select
                     labelId="demo-simple-select-helper-label"
                     id="demo-simple-select-helper"
-                    value={age}
-                    onChange={handleChange}
+                    value={liqueur}
+                    onChange={handleLiqueurChange}
                 >
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    <MenuItem value={10}>Amaretto</MenuItem>
-                    <MenuItem value={20}>Triple Sec</MenuItem>
-                    <MenuItem value={30}>Kahlua</MenuItem>
-                    <MenuItem value={30}>Coconut Liqueur</MenuItem>
+                    <MenuItem value={"Amaretto"}>Amaretto</MenuItem>
+                    <MenuItem value={"Triple Sec"}>Triple Sec</MenuItem>
+                    <MenuItem value={"Kahlua"}>Kahlua</MenuItem>
+                    <MenuItem value={"Coconut Liqueur"}>Coconut Liqueur</MenuItem>
                 </Select>
                 <FormHelperText>Some important helper text</FormHelperText>
             </FormControl>
@@ -72,18 +83,21 @@ const Selectors = () => {
                 <Select
                     labelId="demo-simple-select-helper-label"
                     id="demo-simple-select-helper"
-                    value={age}
-                    onChange={handleChange}
+                    value={mixer}
+                    onChange={handleMixerChange}
                 >
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    <MenuItem value={10}>Apple Juice</MenuItem>
-                    <MenuItem value={20}>Lemon Juice</MenuItem>
-                    <MenuItem value={30}>Coca Cola</MenuItem>
+                    <MenuItem value={"Apple Juice"}>Apple Juice</MenuItem>
+                    <MenuItem value={"Lemon Juice"}>Lemon Juice</MenuItem>
+                    <MenuItem value={"Coca Cola"}>Coca Cola</MenuItem>
                 </Select>
                 <FormHelperText>Some important helper text</FormHelperText>
             </FormControl>
+            <Button variant="outlined" color="primary" onClick={()=>{searchDrinkByIngredients(liquor, liqueur, mixer)}}>
+                Primary
+            </Button>
         </div>
     )
 }

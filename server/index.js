@@ -13,7 +13,8 @@ const token = process.env.API_KEY;
 //search for a spe
 const searchEndpointUrl = `https://www.thecocktaildb.com/api/json/v2/${token}/search.php?s=`
 const randomEndpointUrl = `https://www.thecocktaildb.com/api/json/v2/${token}/randomselection.php`
-const multiIngredientEndpointUrl = `https://www.thecocktaildb.com/api/json/v2/${token}/filter.php?i=Dry_Vermouth,Gin,Anis`
+const multiIngredientEndpointUrl = `https://www.thecocktaildb.com/api/json/v2/${token}/filter.php?i=`
+const idEndpointUrl = `https://www.thecocktaildb.com/api/json/v2/${token}/lookup.php?i=`
 
 // a test route to make sure we can reach the backend
 //this would normally go in a routes file
@@ -34,6 +35,25 @@ app.get('/test', (req, res)=>{
 })
 app.get('/drink/:name', (req, res)=>{
     axios.get(searchEndpointUrl + req.params.name)
+    .then((response)=>{
+        res.send(response.data)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+})
+app.get('/drink/ingredients/:ingredients', (req, res)=>{
+    console.log(multiIngredientEndpointUrl + req.params.ingredients)
+    axios.get(multiIngredientEndpointUrl + req.params.ingredients)
+    .then((response)=>{
+        res.send(response.data)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+})
+app.get('/drinkid/:id', (req, res)=>{
+    axios.get(idEndpointUrl + req.params.id)
     .then((response)=>{
         res.send(response.data)
     })
