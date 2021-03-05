@@ -19,12 +19,11 @@ const Search = ({searchTerm, searchForDrink, onChangeSearchTerm}) => {
     const classes = useStyles();
 
     return (
-        <div className="search">
-        <form className={classes.root} noValidate autoComplete="off" onSubmit={searchForDrink}>
+        <form className={classes.root} noValidate autoComplete="off" onSubmit={searchForDrink} id="container">
              <TextField id="outlined-search" label="Search field" type="search" variant="outlined" value={searchTerm} onChange={onChangeSearchTerm}/>
-             <Button type="submit" variant="contained" color="primary" disableElevation>Search Movie</Button>
+             <Button id="searchButton" type="submit" variant="contained" color="primary" disableElevation>Search a Cocktail</Button>
         </form>
-        </div>
+    
     )
 }
 

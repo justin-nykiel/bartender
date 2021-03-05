@@ -6,6 +6,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import '../css/Selectors.css'
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -41,7 +42,7 @@ const Selectors = ({searchDrinkByIngredients}) => {
     }
     
     return (
-        <div>
+        <div id="selectorBox">
             <FormControl className={classes.formControl}>
                 <InputLabel id="demo-simple-select-helper-label">Liquor</InputLabel>
                 <Select
@@ -95,8 +96,8 @@ const Selectors = ({searchDrinkByIngredients}) => {
                 </Select>
                 <FormHelperText>Some important helper text</FormHelperText>
             </FormControl>
-            <Button variant="outlined" color="primary" onClick={()=>{searchDrinkByIngredients(liquor, liqueur, mixer)}}>
-                Primary
+            <Button id="selectorButton" variant="contained" color="primary" onClick={()=>{searchDrinkByIngredients(liquor, liqueur, mixer)}}>
+                Search By Ingredients
             </Button>
         </div>
     )

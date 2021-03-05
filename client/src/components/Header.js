@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import '../css/Header.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -15,6 +15,10 @@ const StyledSlider = styled(Slider)`
 const Header = () => {
     const [randomDrinks, setRandomDrinks] = useState([])
 
+    useEffect(()=>{
+        searchForRandomDrinks()
+    },[])
+
 
     const renderSlides = () => {
     return randomDrinks.map(drink => (
@@ -23,12 +27,9 @@ const Header = () => {
       </div>
     ));
     }
-    const searchForRandomDrinks = (e) => {
-        e.preventDefault();
+    const searchForRandomDrinks = () => {
         axios.get("http://localhost:8080/test").then((response)=>{
-            console.log(response.data.drinks)
             setRandomDrinks(response.data.drinks)
-            console.log(randomDrinks)
         })
       }
 
@@ -44,15 +45,14 @@ const Header = () => {
       };
     return (
         <>
-        <div className='header'>
-            <h1>Bartender</h1>
-        </div>
-        <div className="carouselContainer">
-            <div className="carousel">
-                <Slider {...settings}>{renderSlides()}</Slider>
+        <div id='header'>
+            <h1 id="title">Bartender</h1>
+            <div id="carouselContainer">
+                <div className="carousel">
+                    <Slider {...settings}>{renderSlides()}</Slider>
+                </div>
             </div>
         </div>
-        <button onClick={searchForRandomDrinks}></button>
         </>
     )
 }

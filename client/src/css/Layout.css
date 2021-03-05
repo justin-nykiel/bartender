@@ -1,3 +1,22 @@
 .search{
     text-align: center;
 }
+
+#headerBlock{
+    display: flex;
+    flex-direction: column;
+}
+
+#searchBlock {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#drinkBlock {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px;
+}

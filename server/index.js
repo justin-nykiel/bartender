@@ -43,7 +43,6 @@ app.get('/drink/:name', (req, res)=>{
     })
 })
 app.get('/drink/ingredients/:ingredients', (req, res)=>{
-    console.log(multiIngredientEndpointUrl + req.params.ingredients)
     axios.get(multiIngredientEndpointUrl + req.params.ingredients)
     .then((response)=>{
         res.send(response.data)

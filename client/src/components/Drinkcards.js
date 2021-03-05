@@ -20,14 +20,16 @@ import Button from '@material-ui/core/Button';
 import axios from 'axios'
 import Tweets from './Tweets'
 import CardActionArea from '@material-ui/core/CardActionArea';
+import "../css/Drinkcards.css"
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    minWidth: 345,
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '100%', // 16:9
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -74,37 +76,31 @@ export default function RecipeReviewCard({img, name, ingredient, glass, measure,
   
 
   return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={img}
-          title={img}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {name}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {instruction}
-            <span>Ingredients:</span>
-            {ingredient.map((each, index)=>{
-              if(each[0] !== null){
-                if(each[1]== null) each[1] = "as needed"
-                return <span>{each[0]} : {each[1]}</span>
-              }
-            })}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
+    <div id="drink">
+      <Card className={classes.root}>
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image={img}
+            title={name}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {name}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              <span className="ingredients">Ingredients:</span>
+              {ingredient.map((each, index)=>{
+                if(each[0] !== null){
+                  if(each[1]== null) each[1] = "as needed"
+                  return <li>{each[0]} : {each[1]}</li>
+                }
+              })}
+              {instruction}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </div>
   );
 }
