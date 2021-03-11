@@ -20,7 +20,7 @@ const Search = ({searchTerm, searchForDrink, onChangeSearchTerm}) => {
 
     return (
         <form className={classes.root} noValidate autoComplete="off" onSubmit={searchForDrink} id="container">
-             <TextField id="outlined-search" label="Search field" type="search" variant="outlined" value={searchTerm} onChange={onChangeSearchTerm}/>
+             <TextField id="outlined-search" label="Cocktail Name" type="search" variant="outlined" value={searchTerm} onChange={onChangeSearchTerm}/>
              <Button id="searchButton" type="submit" variant="contained" color="primary" disableElevation>Search a Cocktail</Button>
         </form>
     

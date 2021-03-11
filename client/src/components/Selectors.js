@@ -59,7 +59,7 @@ const Selectors = ({searchDrinkByIngredients}) => {
                     <MenuItem value={"Rum"}>Rum</MenuItem>
                     <MenuItem value={"Whiskey"}>Whiskey</MenuItem>
                 </Select>
-                <FormHelperText>Some important helper text</FormHelperText>
+                <FormHelperText>pick your liquor</FormHelperText>
             </FormControl>
             <FormControl className={classes.formControl}>
                 <InputLabel id="demo-simple-select-helper-label">Liqueur</InputLabel>
@@ -79,7 +79,7 @@ const Selectors = ({searchDrinkByIngredients}) => {
                     <MenuItem value={"Bitters"}>Bitters</MenuItem>
                     <MenuItem value={"Blue Curacao"}>Blue Curacao</MenuItem>
                 </Select>
-                <FormHelperText>Some important helper text</FormHelperText>
+                <FormHelperText>pick your liqueur</FormHelperText>
             </FormControl>
             <FormControl className={classes.formControl}>
                 <InputLabel id="demo-simple-select-helper-label">Mixers</InputLabel>
@@ -101,7 +101,7 @@ const Selectors = ({searchDrinkByIngredients}) => {
                     <MenuItem value={"Sprite"}>Sprite</MenuItem>
                     <MenuItem value={"Grenadine"}>Grenadine</MenuItem>
                 </Select>
-                <FormHelperText>Some important helper text</FormHelperText>
+                <FormHelperText>pick your mix-ins</FormHelperText>
             </FormControl>
             <Button id="selectorButton" variant="contained" color="primary" onClick={()=>{searchDrinkByIngredients(liquor, liqueur, mixer)}}>
                 Search By Ingredients
