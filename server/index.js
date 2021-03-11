@@ -22,7 +22,7 @@ const idEndpointUrl = `https://www.thecocktaildb.com/api/json/v2/${token}/lookup
 
 
 app.get('/', (req,res) => {
-    res.sendFile(path.join('client', 'build', 'index.html'))
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
 app.get('/test', (req, res)=>{
     axios.get(randomEndpointUrl)
