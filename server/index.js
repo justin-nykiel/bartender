@@ -8,7 +8,7 @@ require('dotenv').config();
 app.use(cors());
 const token = process.env.API_KEY;
 
-app.use(express.static(path.join(__dirname,'client/build')));
+app.use(express.static(path.join(__dirname,'..', 'client/build')));
 app.use(express.static("build"))
 
 //search for a spe
@@ -23,7 +23,7 @@ const idEndpointUrl = `https://www.thecocktaildb.com/api/json/v2/${token}/lookup
 
 
 app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname, "build", 'index.html'))
+    res.sendFile(path.join(__dirname, "..", "build", 'index.html'))
 })
 app.get('/test', (req, res)=>{
     axios.get(randomEndpointUrl)
