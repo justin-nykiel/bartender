@@ -4,11 +4,11 @@ const app = express();
 const cors = require('cors');
 const axios = require('axios')
 
-
-const needle = require('needle');
 require('dotenv').config();
 app.use(cors());
 const token = process.env.API_KEY;
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 //search for a spe
 const searchEndpointUrl = `https://www.thecocktaildb.com/api/json/v2/${token}/search.php?s=`

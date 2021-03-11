@@ -9,8 +9,8 @@
     "client": "cd client && npm run start",
     "build:client": "cd client && npm run build",
     "iall": "npm i && cd client && npm i",
-    "start": "npm run server & npm run client",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
