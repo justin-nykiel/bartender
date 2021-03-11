@@ -89,9 +89,7 @@ const Layout = () => {
       })
     }
     
-    const seeState = () => {
-      console.log(drinks)
-    }
+    
     
     return (
         <>
