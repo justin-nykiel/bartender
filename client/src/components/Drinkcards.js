@@ -18,7 +18,6 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Popover from '@material-ui/core/Popover';
 import Button from '@material-ui/core/Button';
 import axios from 'axios'
-import Tweets from './Tweets'
 import CardActionArea from '@material-ui/core/CardActionArea';
 import "../css/Drinkcards.css"
 
@@ -26,65 +25,32 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
     minWidth: 345,
+    height: '100%'
   },
   media: {
     height: 0,
     paddingTop: '100%', // 16:9
   },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  avatar: {
-    backgroundColor: red[500],
-  },
-  popover: {
-    pointerEvents: 'none',
-  }, paper: {
-    padding: theme.spacing(1),
-  },
+  content: {
+    height: "100%"
+  }
 }));
 
 export default function RecipeReviewCard({img, name, ingredient, glass, measure, instruction}) {
   const classes = useStyles();
-  const [expanded, setExpanded] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [tweets, setTweets] = useState([])
 
-  
-
-  const handlePopoverOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
-  
 
   return (
     <div id="drink">
       <Card className={classes.root}>
-        <CardActionArea>
           <CardMedia
             className={classes.media}
             image={img}
             title={name}
           />
-          <CardContent>
+          <CardContent
+            className={classes.content}
+          >
             <Typography gutterBottom variant="h5" component="h2">
               {name}
             </Typography>
@@ -96,10 +62,10 @@ export default function RecipeReviewCard({img, name, ingredient, glass, measure,
                   return <li>{each[0]} : {each[1]}</li>
                 }
               })}
+              <br></br>
               {instruction}
             </Typography>
           </CardContent>
-        </CardActionArea>
       </Card>
     </div>
   );

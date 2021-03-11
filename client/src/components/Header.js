@@ -36,17 +36,17 @@ const Header = () => {
     const settings = {
       infinite: true,
       speed: 500,
-      slidesToShow: 3,
+      slidesToShow: 1,
       slidesToScroll: 1,
       centerMode: true,
-      variableWidth: true,
       autoplay: true,
-      autoplaySpeed: 3000
+      autoplaySpeed: 3000,
+      variableWidth: true
       };
     return (
         <>
         <div id='header'>
-            <h1 id="title">Bartender</h1>
+            <img src="/images/title.png" alt="Let's Have a Drink"></img>
             <div id="carouselContainer">
                 <div className="carousel">
                     <Slider {...settings}>{renderSlides()}</Slider>

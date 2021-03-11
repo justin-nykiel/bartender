@@ -76,6 +76,8 @@ const Selectors = ({searchDrinkByIngredients}) => {
                     <MenuItem value={"Triple Sec"}>Triple Sec</MenuItem>
                     <MenuItem value={"Kahlua"}>Kahlua</MenuItem>
                     <MenuItem value={"Coconut Liqueur"}>Coconut Liqueur</MenuItem>
+                    <MenuItem value={"Bitters"}>Bitters</MenuItem>
+                    <MenuItem value={"Blue Curacao"}>Blue Curacao</MenuItem>
                 </Select>
                 <FormHelperText>Some important helper text</FormHelperText>
             </FormControl>
@@ -92,7 +94,12 @@ const Selectors = ({searchDrinkByIngredients}) => {
                     </MenuItem>
                     <MenuItem value={"Apple Juice"}>Apple Juice</MenuItem>
                     <MenuItem value={"Lemon Juice"}>Lemon Juice</MenuItem>
-                    <MenuItem value={"Coca Cola"}>Coca Cola</MenuItem>
+                    <MenuItem value={"Coca-Cola"}>Coca-Cola</MenuItem>
+                    <MenuItem value={"Lemon"}>Lemon</MenuItem>
+                    <MenuItem value={"7-Up"}>7-Up</MenuItem>
+                    <MenuItem value={"Cranberry Juice"}>Cranberry Juice</MenuItem>
+                    <MenuItem value={"Sprite"}>Sprite</MenuItem>
+                    <MenuItem value={"Grenadine"}>Grenadine</MenuItem>
                 </Select>
                 <FormHelperText>Some important helper text</FormHelperText>
             </FormControl>

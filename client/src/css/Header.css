@@ -10,9 +10,8 @@
     display: block;
 }
 .carousel {
-    width: 70vw;
-    height: 300px;
-    margin: auto;
+    position: relative;
+    height: 263px;
 }
 
 .carousel .slick-next:before, .carousel .slick-prev:before {
@@ -21,15 +20,24 @@
 
 .drinkPic {
     height: 260px;
+    width:auto;
 }
 #title {
     display: block;
+    color: #fff0ff;
 }
 #carouselContainer {
     display: block;
+    width: 80vw;
+    height: 263px;
+    margin: 20px auto 30px auto;
 }
 #header {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.slick-slider{
+    height: 263px;
 }

@@ -1,6 +1,9 @@
 .search{
     text-align: center;
 }
+body {
+    background-color: honeydew;
+}
 
 #headerBlock{
     display: flex;

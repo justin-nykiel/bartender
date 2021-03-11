@@ -46,6 +46,7 @@ const Layout = () => {
       e.preventDefault()
       axios.get("http://localhost:8080/drink/"+searchTerm)
       .then((response)=>{
+          console.log(response.data)
           setDrinks(response.data.drinks)
       })
     };
@@ -65,20 +66,24 @@ const Layout = () => {
       } else if(mixer){
         ingredients += mixer
       }
-      let drinksById = []
       async function getDrinks(){
-        let allDrinks = []
         setLoading(true)
         let values = await axios.get("http://localhost:8080/drink/ingredients/"+ingredients)
-        let dranks = await Promise.all(values.data.drinks.map((element)=>{
-            return axios.get("http://localhost:8080/drinkid/"+element.idDrink)
-        }))
+        let dranks = false
+        if(values.data.drinks !== "None Found"){
+          dranks = await Promise.all(values.data.drinks.map((element)=>{
+              return axios.get("http://localhost:8080/drinkid/"+element.idDrink)
+          }))
+        } 
         return dranks
       }
       getDrinks().then((response)=>{
-        let drinkArray = response.map((element)=>{
-          return element.data.drinks[0]
-        })
+        let drinkArray = false
+        if(response){
+          drinkArray = response.map((element)=>{
+            return element.data.drinks[0]
+          })
+        }
         setDrinks(drinkArray)
         setLoading(false)
       })
