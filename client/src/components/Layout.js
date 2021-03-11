@@ -44,7 +44,7 @@ const Layout = () => {
     
     const searchForDrink = (e) => {
       e.preventDefault()
-      axios.get("http://localhost:8080/drink/"+searchTerm)
+      axios.get("/drink/"+searchTerm)
       .then((response)=>{
           console.log(response.data)
           setDrinks(response.data.drinks)
@@ -68,11 +68,11 @@ const Layout = () => {
       }
       async function getDrinks(){
         setLoading(true)
-        let values = await axios.get("http://localhost:8080/drink/ingredients/"+ingredients)
+        let values = await axios.get("/drink/ingredients/"+ingredients)
         let dranks = false
         if(values.data.drinks !== "None Found"){
           dranks = await Promise.all(values.data.drinks.map((element)=>{
-              return axios.get("http://localhost:8080/drinkid/"+element.idDrink)
+              return axios.get("/drinkid/"+element.idDrink)
           }))
         } 
         return dranks

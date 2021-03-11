@@ -28,7 +28,7 @@ const Header = () => {
     ));
     }
     const searchForRandomDrinks = () => {
-        axios.get("/test").then((response)=>{
+        axios.get("/random-drinks").then((response)=>{
             setRandomDrinks(response.data.drinks)
         })
       }
